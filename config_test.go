@@ -32,12 +32,12 @@ func Test_config(t *testing.T){
 }
 //
 func Test_opencc(t *testing.T){
-	cc,err := NewOpenCC("s2t")
+	cc,err := NewOpenCC("s2twp")
 	if err != nil{
 		fmt.Println(err)
 		return
 	}
-	nText,err := cc.ConvertText(`台湾（Taiwan），位于中国大陆东南沿海的大陆架上，东临太平洋，东北邻琉球群岛，南界巴士海峡与菲律宾群岛相对，西隔台湾海峡与福建省相望， [1]  总面积约3.6万平方千米，包括台湾岛及兰屿、绿岛、钓鱼岛等21个附属岛屿和澎湖列岛64个岛屿。台湾岛面积35882.6258平方千米，是中国第一大岛， [2]  7成为山地与丘陵，平原主要集中于西部沿海，地形海拔变化大。由于地处热带及亚热带气候之交界，自然景观与生态资源丰富。人口约2350万，逾7成集中于西部5大都会区，其中以首要都市台北为中心的台北都会区最大。`)
+	nText,err := cc.ConvertText(`迪拜（阿拉伯语：دبي，英语：Dubai），是阿拉伯联合酋长国人口最多的城市，位于波斯湾东南海岸，迪拜也是组成阿联酋七个酋长国之一——迪拜酋长国的首都。`)
 	if err != nil{
 		fmt.Println(err)
 		return
