@@ -17,11 +17,11 @@
 
 ### 使用
 
-
 ```go
 import "github.com/sgoby/opencc"
 
 ...
+
 //简体到繁體（臺灣正體標準）
 func Test_opencc(t *testing.T){
 	cc,err := NewOpenCC("s2twp")
@@ -37,4 +37,6 @@ func Test_opencc(t *testing.T){
 	fmt.Println(nText)
 
 }
+// 输出:
+// 杜拜（阿拉伯語：دبي，英語：Dubai），是阿拉伯聯合大公國人口最多的城市，位於波斯灣東南海岸，杜拜也是組成阿聯酋七個酋長國之一——杜拜酋長國的首都。
 ```
