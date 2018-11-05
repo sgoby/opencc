@@ -40,6 +40,10 @@ func NewOpenCC(conversions string) (*OpenCC, error) {
 	if err != nil {
 		return nil, err
 	}
+	err = conf.init()
+	if err != nil {
+		return nil, err
+	}
 	//
 	return &OpenCC{conf:conf}, nil
 }

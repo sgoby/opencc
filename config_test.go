@@ -8,11 +8,8 @@ import (
 	"os"
 	"path/filepath"
 	"log"
+	"time"
 )
-
-
-
-
 //
 func Test_config(t *testing.T){
 	fileName := `s2t.json`
@@ -37,7 +34,7 @@ func Test_opencc(t *testing.T){
 		fmt.Println(err)
 		return
 	}
-	nText,err := cc.ConvertText(`迪拜（阿拉伯语：دبي，英语：Dubai），是阿拉伯联合酋长国人口最多的城市，位于波斯湾东南海岸，迪拜也是组成阿联酋七个酋长国之一——迪拜酋长国的首都。`)
+	nText,err := cc.ConvertText(`保税工厂声明：本书为无限小说网(txt53.com)以下作品内容之版权与本站无任何关系`)
 	if err != nil{
 		fmt.Println(err)
 		return
@@ -48,12 +45,12 @@ func Test_opencc(t *testing.T){
 func Test_openccFile(t *testing.T){
 	localdir := filepath.Dir(os.Args[0])
 
-	inFile,err := os.Open(localdir +"/online.txt")
+	inFile,err := os.Open(localdir +"/神剑渡魔.txt")
 	if err != nil{
 		fmt.Println("in:",err)
 		return
 	}
-	outFile,err := os.OpenFile(localdir +"/online_2.txt",os.O_CREATE|os.O_APPEND,0644)
+	outFile,err := os.OpenFile(localdir +"/神剑渡魔_3.txt",os.O_CREATE|os.O_APPEND,0644)
 	if err != nil{
 		fmt.Println("out:",err)
 		return
@@ -63,11 +60,12 @@ func Test_openccFile(t *testing.T){
 		fmt.Println("cc:",err)
 		return
 	}
+	startTime := time.Now()
 	log.Println("start...")
 	err = cc.ConvertFile(inFile,outFile)
 	if err != nil{
 		fmt.Println("ccf",err)
 		return
 	}
-	log.Println("end...")
+	log.Println("end...",time.Now().Unix() - startTime.Unix())
 }
